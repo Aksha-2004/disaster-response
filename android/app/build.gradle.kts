@@ -1,0 +1,47 @@
+plugins {
+    id("com.android.application")
+    id("kotlin-android")
+    id("com.google.gms.google-services") // For Firebase
+}
+
+android {
+    namespace = "com.company.now"
+    compileSdk = 35
+    ndkVersion = "27.0.12077973"
+
+    defaultConfig {
+        applicationId = "com.company.now"
+        minSdk = 21
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0.0"
+    }
+
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+            isShrinkResources = false
+            signingConfig = signingConfigs.getByName("debug")
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
+dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.23")
+    implementation("com.google.firebase:firebase-analytics:21.6.1")
+    implementation("com.google.firebase:firebase-auth:22.3.1")
+    implementation("com.google.firebase:firebase-firestore:25.0.0")
+}
+
+// DO NOT add `dev.flutter.flutter-gradle-plugin` here
+
+
